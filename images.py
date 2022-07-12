@@ -35,12 +35,20 @@ menu_image_line = """
 """
 
 options_menu = """
-   
    --------------------       -----------       ------------
 --| 1.| WINNING SCORE  |-----| 2.| TIPS  |-----| 3. | BACK  |
    --------------------       -----------       ------------
 
 """
+
+score = """
+   
+   ----------------------       ----------------------       ----------------------
+--| 1.|  TOTAL SCORE: 3  |-----| 2.|  TOTAL SCORE: 5  |-----| 3.|  TOTAL SCORE: 10  |
+   ----------------------       ----------------------       ----------------------
+
+"""
+
 
 
 rock_paper_scissors = """
@@ -154,10 +162,3 @@ lose_b = """
 
 
 
-def print_options(i):
-    opt = input(f"Select your option (1-{i}):\n")
-    return opt
-
-
-a = print_options(4)
-print(a)

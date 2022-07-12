@@ -4,8 +4,7 @@ from unittest import result
 from bullet import Password
 from os import system
 from unicodedata import name
-from images import logo, menu_image_line, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu
-# from player import Player
+from images import logo, menu_image_line, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu, score
 from player import Player
 from options_menu import tips
 
@@ -28,6 +27,7 @@ option = ""
 options = ""
 # main menu has 4 options, select one of them
 while option != "4":
+    # variables
     user_score = 0
     computer_score = 0
     option = print_options(4)
@@ -69,7 +69,6 @@ while option != "4":
                     print("\/\/\nComputer")
                     print(images[computer_choice - 1])
 
-                    # check who is the winer   
                     # give feedback + core keeping
                     if user_choice == 3 and computer_choice == 1:
                         computer_score += 1
@@ -85,7 +84,7 @@ while option != "4":
                     elif user_choice < computer_choice:
                         computer_score += 1
                         print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
-
+        # check who is the winer  
         # if user goes to 3 then the game should stop and print "win"
         if user_score == 3:
             print(win_a)
@@ -170,23 +169,33 @@ while option != "4":
         elif user2_score ==3:
             tprint(f"{name2} WINS!", font = "small")
         else:
-            tprint(f"See  you\nNext  Game . . ?", font = "small")
+            tprint("See  you\nNext  Game . . ?", font = "small")
     elif option == "3":
-        while options != "3":
+        while True:
             print(logo)
             print(options_menu)
             options = print_options(3)
             system('clear')
-            if options == "6":
+            if options == "1":
+                print(score)
+
+            # type 2 - direction/rules about the game    
+            elif options == "2":
                 print(tips)
-    
-            elif options == "5":
-                continue
+
+            # type 3 - back to main menu
+            elif options == "3":
+                tprint("Ready ?", font = "small")
+                break
+            
             else:
                 print("\nInviad input")
-
-            input("\n>> Press ENTER to back")
-            system('clear')
+            input("\n>> Press ENTER to back")      
+            # system('clear')
+            
+            continue
+    
+    # select option 4 - exit
     elif option == "4":
         continue
 

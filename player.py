@@ -38,23 +38,3 @@ class Player:
 # newplayer1.welcome_player()
 # cc = newplayer1.ask_choice()
 
-
-# # name2 = input("Player 2 -> enter your name:\n")
-# # print(f"\nWelcome {name1} and {name2} !\n\n")
-
-
-
-# newplayer1.display_player()
-
-
-# print("""
-# You know how to play this game, right?
-
-# Rock beats Scissors
-# Paper beats Rocks
-# Scissors beats Paper
-
-# Type 1 for Rock, 2 for Paper or 3 for Scissors
-# Enjoy! 
-
-# """)
