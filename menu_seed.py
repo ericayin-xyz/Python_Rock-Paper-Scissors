@@ -1,14 +1,22 @@
-class MenuOption:
-    def __init__(self, index, option):
-        self.index = index
-        self.option = option
+from menu_option import MenuOption
+from images import mainmenu, options_menu
+from menu import Menu
 
-    def show_option(self):
-        return(f"{self.index}. {self.option}")
+option1 = MenuOption(1, mainmenu[1])
+option2 = MenuOption(2, mainmenu[2])
+option3 = MenuOption(3, mainmenu[3])
+option4 = MenuOption(4, mainmenu[4])
 
-# type 1 - setting winning score
-# score cap: 3, 5, 10
+menu = Menu([option1, option2, option3, option4])
 
+sub_option1 = MenuOption(1, options_menu[1])
+sub_option2 = MenuOption(2, options_menu[2])
+sub_option3 = MenuOption(3, options_menu[3])
+
+menu_options = Menu([sub_option1, sub_option2, sub_option3])
+# menu.print_menu()
+
+menu_options.print_menu()
 
 tips = """
   ------------------------------------------------------------------------

@@ -1,36 +1,39 @@
+from menu_option import MenuOption
+from menu import Menu
+from menu_seed import menu, menu_options
 import random
 from art import *
-from unittest import result
 from bullet import Password
 from os import system
 from unicodedata import name
-from images import logo, menu_image_line, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu, score
+from images import logo, mainmenu, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu, score
 from player import Player
-from options_menu import tips
+from menu_seed import tips
 
 
-def print_options(i):
-    opt = input(f"Select your option (1-{i}):\n")
+def _print_options(i):
+    opt = input(f"\n  Select your option (1-{i}):\n  ")
     return opt
 
 
 
 # ----------------------------------------------------#
-system('clear')
-# display logo + weclome str
-print(logo)
-print(f"  {'> ' * 5} Welcome come to the Rock, Paper, Scissors! \n")
-print(menu_image_line)
 images = [rock, paper, scissors]
-
 option = ""
 options = ""
+
+system('clear')
+# display logo + weclome str
+menu.print_menu()
+
+
+
 # main menu has 4 options, select one of them
 while option != "4":
     # variables
     user_score = 0
     computer_score = 0
-    option = print_options(4)
+    option = _print_options(4)
     system('clear')
 
     # select option 1 - player1
@@ -172,9 +175,8 @@ while option != "4":
             tprint("See  you\nNext  Game . . ?", font = "small")
     elif option == "3":
         while True:
-            print(logo)
-            print(options_menu)
-            options = print_options(3)
+            menu_options.print_menu()
+            options = _print_options(3)
             system('clear')
             if options == "1":
                 print(score)
@@ -204,7 +206,6 @@ while option != "4":
 
     input("\nPress ENTER to continue")
     system('clear')
-    print(logo)
-    print(menu_image_line)
+    menu.print_menu()
 # end the game
 tprint(f"Goodbye!", font = "small")

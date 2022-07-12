@@ -1,4 +1,5 @@
 from menu_option import MenuOption
+from images import mainmenu, logo
 
 class Menu:
     # a list of menu options
@@ -6,19 +7,9 @@ class Menu:
         self.menu_option = menu_option
 
     def print_menu(self):
-        print("Welcome come to the game! Enter your number:\n ")
+        print(logo)
+        print(f"  {'> ' * 5} Welcome come to the Rock, Paper, Scissors! \n")
         for option in self.menu_option:
             option.show_option()
 
-# option1 = MenuOption(1, "MENU")
-# option2 = MenuOption(2, "PLAYER-1")
-# option3 = MenuOption(3, "PLAYER-2")
-# option4 = MenuOption(4, "Exit")
-
-# menu = Menu([option1, option2, option3, option4])
-# menu.print_menu()
-
-# a = MenuOption(1, "Tips")
-# a = MenuOption(2, "Back")
-# print(a.show_option())
 
