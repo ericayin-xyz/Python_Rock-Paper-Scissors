@@ -1,56 +1,201 @@
 import random
+from art import *
+from unittest import result
+from bullet import Password
 from os import system
 from unicodedata import name
-from images import logo, menu_image_line, menu_image, rock, paper, scissors
+from images import logo, menu_image_line, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu
+# from player import Player
 from player import Player
+from options_menu import tips
 
 
-def print_options():
-    opt = input("Select your option (1-4):\n")
+def print_options(i):
+    opt = input(f"Select your option (1-{i}):\n")
     return opt
 
 
-# ----------------------------------------------------#
 
+# ----------------------------------------------------#
+system('clear')
 # display logo + weclome str
 print(logo)
-print("  > > > > >  Welcome come to the Rock Paper Scissors! \n")
+print(f"  {'> ' * 5} Welcome come to the Rock, Paper, Scissors! \n")
 print(menu_image_line)
-# images = [rock, paper, scissors]
-user_score = 0
-computer_score = 0
+images = [rock, paper, scissors]
 
 option = ""
-
-while option != "3":
-    option = print_options()
+options = ""
+# main menu has 4 options, select one of them
+while option != "4":
+    user_score = 0
+    computer_score = 0
+    option = print_options(4)
     system('clear')
 
+    # select option 1 - player1
     if option == "1":
-        name1 = input("Enter your name:\n")
+        name1 = input("\nEnter your name:\n")
         new_player = Player(1, name1)
-        new_player.add_play()
+        system('clear')
+        new_player.welcome_player()
+        # make the game repeatable
+        while user_score < 3 and computer_score < 3:
+            try:
+                # ask user for a choice
+                user_print = print("-----------\n1. Rock\n2. Paper\n3. Scissors\n-----------\n>> [4. Exit]\n\n\n")
+            
+                user_choice = int(new_player.ask_choice())
+            except ValueError:
+                system('clear')
+                print(rock_paper_scissors)
+                print("\nIvalid Input, please enter a number.\n")  
+            else:    
+                #clear the screen between rounds.
+                system('clear')
+                if user_choice > 4 or user_choice < 1:
+                    print(rock_paper_scissors)
+                    print("\nIvalid Input, please try again.\n")
+                elif user_choice == 4:
+                    break
+                else:
+                    print("\n\/\/")
+                    print(name1)
+                    print(images[user_choice - 1])
+                    print(line)
 
+                    # generate a random choice for the computer
+                    computer_choice = random.randint(1,3)
+                    print("\/\/\nComputer")
+                    print(images[computer_choice - 1])
+
+                    # check who is the winer   
+                    # give feedback + core keeping
+                    if user_choice == 3 and computer_choice == 1:
+                        computer_score += 1
+                        print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
+                    elif user_choice == 1 and computer_choice == 3:
+                        user_score += 1
+                        print(f">> You Win! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
+                    elif user_choice == computer_choice:
+                        print(f">> It's a Deaw! <<\nYour  score: {user_score}\nComputer score: {computer_score}\n\n")
+                    elif user_choice > computer_choice:
+                        user_score += 1
+                        print(f">> You Win! <<\nYour  score: {user_score}\nComputer score: {computer_score}\n\n")
+                    elif user_choice < computer_choice:
+                        computer_score += 1
+                        print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
+
+        # if user goes to 3 then the game should stop and print "win"
+        if user_score == 3:
+            print(win_a)
+            print(win_b)
+
+        # if computer goes to 3 then the game should stop and print "lose"
+        elif computer_score ==3:
+            print(lose_a)
+            print(lose_b)
+        else:
+            tprint(f"See  you\nNext  Game . . ?", font = "small")
+
+    # select option 2 - player2
     elif option == "2":
-        name1 = input("Player 1 -> enter your name:\n")
-        newplayer1 = Player(1, name1)
+        user1_score = 0
+        user2_score = 0
+        name1 = input("\nEnter Player 1 name:\n")
+        name2 = input("Enter Player 2 name:\n")
 
-        name2 = input("Player 2 -> enter your name:\n")
+        newplayer1 = Player(1, name1)
         newplayer2 = Player(2, name2)
 
-        print(f"\nWelcome {name1} and {name2}, press ENTER to start")
+        system('clear')
+        print(f"\nWelcome {name1} and {name2}!\n")
 
+        while user1_score < 3 and user2_score < 3:
+            try:
+                # print 4 options
+                print(f"{'-'*11}\n1. Rock\n2. Paper\n3. Scissors\n{'-'*11}\n[4. End the game]\n\n\n")
 
+                # ask user 1 and user 2 for a choice
+                user_input_1 = Password(prompt=f"Make your choice, {name1}!\n", hidden="*")
+                user_choice_1 = int(user_input_1.launch())
+                user_input_2 = Password(prompt=f"Make your choice, {name2}!\n", hidden="*")
+                user_choice_2 = int(user_input_2.launch())
+                
+            except ValueError:
+                system('clear')
+                print(rock_paper_scissors)
+                print("\nIvalid Input, please enter a number.\n")  
+            else:    
+                #clear the screen between rounds.
+                system('clear')
+                if user_choice_1 > 4 or user_choice_1 < 1 or user_choice_2 > 4 or user_choice_2 < 1:
+                    print(rock_paper_scissors)
+                    print("\nIvalid Input, please try again.\n")
+                elif user_choice_1 == 4 or user_choice_2 == 4:
+                    break
+                else:
+                    # print results -> user 1
+                    print("\n\/\/")
+                    print(name1)
+                    print(images[user_choice_1 - 1])
+                    print(line)
+                    # print results -> user 2
+                    print("\n\/\/")
+                    print(name2)
+                    print(images[user_choice_2 - 1])
+
+                    # check who is the winer   
+                    # give feedback + core keeping
+                    if user_choice_1 == 3 and user_choice_2 == 1:
+                        user2_score += 1
+                        print(f">> {name2} Wins! <<\n{name1} score: {user1_score}\n{name2} score: {user2_score}\n\n")
+                    elif user_choice_1 == 1 and user_choice_2 == 3:
+                        user1_score += 1
+                        print(f">> {name1} Wins! <<\n{name1} score: {user1_score}\n{name2} score: {user2_score}\n\n")
+                    elif user_choice_1 == user_choice_2:
+                        print(f">> It's a Deaw! <<\n{name1}  score: {user1_score}\n{name2} score: {user2_score}\n\n")
+                    elif user_choice_1 > user_choice_2:
+                        user1_score += 1
+                        print(f">> {name1} Wins! <<\n{name1}  score: {user1_score}\n{name2} score: {user2_score}\n\n")
+                    elif user_choice_1 < user_choice_2:
+                        user2_score += 1
+                        print(f">> {name2} Wins! <<\n{name1} score: {user1_score}\n{name2} score: {user2_score}\n\n")
+
+        # if user goes to 3 then the game should stop and print "win"
+        if user1_score == 3:
+            tprint(f"Congrats\n{name1}!", font = "small")
+
+        # if computer goes to 3 then the game should stop and print "lose"
+        elif user2_score ==3:
+            tprint(f"{name2} WINS!", font = "small")
+        else:
+            tprint(f"See  you\nNext  Game . . ?", font = "small")
     elif option == "3":
+        while options != "3":
+            print(logo)
+            print(options_menu)
+            options = print_options(3)
+            system('clear')
+            if options == "6":
+                print(tips)
+    
+            elif options == "5":
+                continue
+            else:
+                print("\nInviad input")
+
+            input("\n>> Press ENTER to back")
+            system('clear')
+    elif option == "4":
         continue
 
     else:
         print("\nInviad input")
 
-    input("\n\nPress ENTER to continue")
+    input("\nPress ENTER to continue")
     system('clear')
     print(logo)
     print(menu_image_line)
-   
-
-print("See you next time!")
+# end the game
+tprint(f"Goodbye!", font = "small")
