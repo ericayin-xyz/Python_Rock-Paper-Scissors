@@ -20,8 +20,8 @@ menu_options = Menu([sub_option1, sub_option2, sub_option3])
 
 
 score_option1 = MenuOption(1, score_options[1])
-score_option2 = MenuOption(1, score_options[2])
-score_option3 = MenuOption(1, score_options[3])
+score_option2 = MenuOption(2, score_options[2])
+score_option3 = MenuOption(3, score_options[3])
 
 menu_scores_option = Menu([score_option1, score_option2, score_option3])
 # Testing

@@ -11,5 +11,3 @@ class Menu:
         print(f"  {'> ' * 5} Welcome come to the Rock, Paper, Scissors! \n")
         for option in self.menu_option:
             option.show_option()
-
-
