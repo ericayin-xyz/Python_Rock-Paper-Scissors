@@ -35,7 +35,7 @@ system('clear')
 images = [rock, paper, scissors]
 option = ""
 options = ""
-score_choice = ""
+score_choices = ""
 totall_score = 3
 
 
@@ -121,7 +121,7 @@ while option != "4":
         user1_score = 0
         user2_score = 0
         name1 = input("\nEnter Player 1 name:\n")
-        name2 = input("Enter Player 2 name:\n")
+        name2 = input("\nEnter Player 2 name:\n")
 
         newplayer1 = Player(1, name1)
         newplayer2 = Player(2, name2)
@@ -192,35 +192,37 @@ while option != "4":
             _exit_game()
 
     elif option == "3":
-        
-
-
-
-
         while True:
-            
-            menu_options.print_menu()
-            options = _print_options(3)
-            system('clear')
-            if options == "1":
-                menu_scores_option.print_menu()
-                score_choices = {"1" : 3, "2" : 5, "3" : 10}
-                x = _print_options(3)
-                totall_score = score_choices[x] 
+            try:
+                menu_options.print_menu()
+                options = _print_options(3)
+                # for options in 1, 2,  3:
+                system('clear')
+            except ValueError:
+                _inviad_input()
 
-                while True:  
+            if options == "1":
+                # while score_choices == "1" or "2" or "3":  
+                try:
+                    menu_scores_option.print_menu()
+                    x = _print_options(3) 
+                except ValueError:
+                    _inviad_input() 
+                else:
+                    score_choices = {"1" : 3, "2" : 5, "3" : 10}
+                    totall_score = score_choices[x] 
+                    
                     if x == "1": 
-                        print(f"  Your score cap has been changed to {score_choices[x]} !")
+                        print(f"  Your score cap has been changed to [{score_choices[x]}] !")
                     elif x == "2":
-                        print(f"\n  Your score cap has been changed to {score_choices[x]}")
+                        print(f"\n  Your score cap has been changed to [{score_choices[x]}] !")
                     elif x == "3":
-                        print(f"\n  Your score cap has been changed to {score_choices[x]}")
+                        print(f"\n  Your score cap has been changed to [{score_choices[x]}] !")
                     else:
                         system('clear') 
                         _inviad_input()
-                        
-                    break           
-
+                    break  
+                
             # type 2 - direction/rules about the game    
             elif options == "2":
                 print(tips)
