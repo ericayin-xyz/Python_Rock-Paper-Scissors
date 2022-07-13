@@ -1,3 +1,4 @@
+from email.policy import default
 from menu_option import MenuOption
 from menu import Menu
 from menu_seed import menu, menu_options
@@ -12,7 +13,7 @@ from menu_seed import tips
 
 
 def _print_options(i):
-    opt = input(f"\n  Select your option (1-{i}):\n  ")
+    opt = input(f"\n  Select your option (1-{i}):  ")
     return opt
 
 
@@ -21,6 +22,7 @@ def _print_options(i):
 images = [rock, paper, scissors]
 option = ""
 options = ""
+score_choice = ""
 
 system('clear')
 # display logo + weclome str
@@ -33,6 +35,7 @@ while option != "4":
     # variables
     user_score = 0
     computer_score = 0
+    default_totall_scores = 3
     option = _print_options(4)
     system('clear')
 
@@ -43,7 +46,7 @@ while option != "4":
         system('clear')
         new_player.welcome_player()
         # make the game repeatable
-        while user_score < 3 and computer_score < 3:
+        while user_score < default_totall_scores and computer_score < default_totall_scores:
             try:
                 # ask user for a choice
                 user_print = print("-----------\n1. Rock\n2. Paper\n3. Scissors\n-----------\n>> [4. Exit]\n\n\n")
@@ -89,12 +92,12 @@ while option != "4":
                         print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
         # check who is the winer  
         # if user goes to 3 then the game should stop and print "win"
-        if user_score == 3:
+        if user_score == default_totall_scores:
             print(win_a)
             print(win_b)
 
         # if computer goes to 3 then the game should stop and print "lose"
-        elif computer_score ==3:
+        elif computer_score == default_totall_scores:
             print(lose_a)
             print(lose_b)
         else:
@@ -180,6 +183,22 @@ while option != "4":
             system('clear')
             if options == "1":
                 print(score)
+                score_choice = _print_options(3)
+                while True:
+                    if score_choice == "1":
+                        print("\n  Your score cap has been changed to 5")
+                        
+                    elif score_choice == "2":
+                        print("\n  Your score cap has been changed to 10")
+                    elif score_choice == "3":
+                        
+                        break
+                    else:
+                        print("\nInviad input")
+                    
+               
+                    break
+                
 
             # type 2 - direction/rules about the game    
             elif options == "2":
@@ -192,7 +211,7 @@ while option != "4":
             
             else:
                 print("\nInviad input")
-            input("\n>> Press ENTER to back")      
+            input("\n\n  >> Press ENTER to back << ")      
             # system('clear')
             
             continue
@@ -204,7 +223,7 @@ while option != "4":
     else:
         print("\nInviad input")
 
-    input("\nPress ENTER to continue")
+    input("\nPress ENTER to continue ")
     system('clear')
     menu.print_menu()
 # end the game
