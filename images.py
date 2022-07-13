@@ -189,12 +189,3 @@ lose_b = """
              '  \____/ \__/ (____/(____)  '
 """
 
-from art import *
-def _inviad_input():
-    message1 = tprint("error", font = "small")
-    message2 = print("Inviad Input")
-    message_output = message2 and message1
-    return message_output
-
-_inviad_input()
-

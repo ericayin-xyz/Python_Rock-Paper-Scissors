@@ -9,13 +9,14 @@ option4 = MenuOption(4, mainmenu[4])
 
 menu = Menu([option1, option2, option3, option4])
 
+
 sub_option1 = MenuOption(1, options_menu[1])
 sub_option2 = MenuOption(2, options_menu[2])
 sub_option3 = MenuOption(3, options_menu[3])
 
 menu_options = Menu([sub_option1, sub_option2, sub_option3])
+# Testing
 # menu.print_menu()
-
 
 
 score_option1 = MenuOption(1, score_options[1])
@@ -23,7 +24,9 @@ score_option2 = MenuOption(1, score_options[2])
 score_option3 = MenuOption(1, score_options[3])
 
 menu_scores_option = Menu([score_option1, score_option2, score_option3])
-menu_scores_option.print_menu()
+# Testing
+# menu_scores_option.print_menu()
+
 
 tips = """
   ------------------------------------------------------------------------
