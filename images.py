@@ -62,13 +62,21 @@ options_menu = {
 }
 
 
-score = """
-   
-   ----------------------       ----------------------       ----------------------
---| 1.|  TOTAL SCORE: 3  |-----| 2.|  TOTAL SCORE: 5  |-----| 3.|  TOTAL SCORE: 10  |
-   ----------------------       ----------------------       ----------------------
+score_options = {
+1:   
+""" SCORE CAP 3   |
+  ___________________|      
+""" ,
 
-"""
+2:   
+""" SCORE CAP 5   |
+  ___________________|    
+""" ,
+3:   
+""" SCORE CAP 10  |
+  ___________________|     
+""" 
+}
 
 
 
@@ -80,6 +88,7 @@ rock_paper_scissors = """
  |   ;__     (______).         |   |__         _______)          |   ;__     (_____)
  |___|  ` __(_____).           |___|  ` .________)               |___|  ` ___(____)
 
+         Rock                            Paper                           Scissors
 """
 
 
@@ -180,6 +189,12 @@ lose_b = """
              '  \____/ \__/ (____/(____)  '
 """
 
+from art import *
+def _inviad_input():
+    message1 = tprint("error", font = "small")
+    message2 = print("Inviad Input")
+    message_output = message2 and message1
+    return message_output
 
-
+_inviad_input()
 

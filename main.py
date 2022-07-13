@@ -1,3 +1,4 @@
+from email import message
 from email.policy import default
 from menu_option import MenuOption
 from menu import Menu
@@ -7,31 +8,38 @@ from art import *
 from bullet import Password
 from os import system
 from unicodedata import name
-from images import logo, mainmenu, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu, score
+from images import logo, mainmenu, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu
 from player import Player
-from menu_seed import tips
+from menu_seed import tips, menu_scores_option
 
 
 def _print_options(i):
     opt = input(f"\n  Select your option (1-{i}):  ")
     return opt
 
+def _inviad_input():
+    message1 = tprint("error", font = "small")
+    message2 = print("- Inviad Input -")
+    message_output = message1 and message2
+    return message_output
 
 
 # ----------------------------------------------------#
+system('clear') 
 images = [rock, paper, scissors]
 option = ""
 options = ""
 score_choice = ""
 
-system('clear')
-# display logo + weclome str
-menu.print_menu()
+
+
 
 
 
 # main menu has 4 options, select one of them
 while option != "4":
+    # display logo + weclome str
+    menu.print_menu()
     # variables
     user_score = 0
     computer_score = 0
@@ -116,7 +124,7 @@ while option != "4":
         system('clear')
         print(f"\nWelcome {name1} and {name2}!\n")
 
-        while user1_score < 3 and user2_score < 3:
+        while user1_score < default_totall_scores and user2_score < default_totall_scores:
             try:
                 # print 4 options
                 print(f"{'-'*11}\n1. Rock\n2. Paper\n3. Scissors\n{'-'*11}\n[4. End the game]\n\n\n")
@@ -168,11 +176,11 @@ while option != "4":
                         print(f">> {name2} Wins! <<\n{name1} score: {user1_score}\n{name2} score: {user2_score}\n\n")
 
         # if user goes to 3 then the game should stop and print "win"
-        if user1_score == 3:
+        if user1_score == default_totall_scores:
             tprint(f"Congrats\n{name1}!", font = "small")
 
         # if computer goes to 3 then the game should stop and print "lose"
-        elif user2_score ==3:
+        elif user2_score ==default_totall_scores:
             tprint(f"{name2} WINS!", font = "small")
         else:
             tprint("See  you\nNext  Game . . ?", font = "small")
@@ -182,23 +190,21 @@ while option != "4":
             options = _print_options(3)
             system('clear')
             if options == "1":
-                print(score)
+                menu_scores_option.print_menu()
                 score_choice = _print_options(3)
                 while True:
                     if score_choice == "1":
-                        print("\n  Your score cap has been changed to 5")
+                        print("\n  Your score cap has been changed to 3")
                         
                     elif score_choice == "2":
-                        print("\n  Your score cap has been changed to 10")
+                        print("\n  Your score cap has been changed to 5")
                     elif score_choice == "3":
-                        
-                        break
+                        print("\n  Your score cap has been changed to 10")
                     else:
-                        print("\nInviad input")
-                    
-               
-                    break
-                
+                        system('clear') 
+                        _inviad_input()
+                        
+                    break           
 
             # type 2 - direction/rules about the game    
             elif options == "2":
@@ -210,10 +216,9 @@ while option != "4":
                 break
             
             else:
-                print("\nInviad input")
-            input("\n\n  >> Press ENTER to back << ")      
-            # system('clear')
-            
+                _inviad_input()
+            input("\n\n>> Press ENTER to back << ")      
+            system('clear') 
             continue
     
     # select option 4 - exit
@@ -221,10 +226,10 @@ while option != "4":
         continue
 
     else:
-        print("\nInviad input")
+        _inviad_input()
 
-    input("\nPress ENTER to continue ")
+    input("\n>> Press ENTER to continue <<")
     system('clear')
-    menu.print_menu()
+
 # end the game
-tprint(f"Goodbye!", font = "small")
+tprint("Goodbye!", font = "small")

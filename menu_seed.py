@@ -1,5 +1,5 @@
 from menu_option import MenuOption
-from images import mainmenu, options_menu
+from images import mainmenu, options_menu, score_options
 from menu import Menu
 
 option1 = MenuOption(1, mainmenu[1])
@@ -16,7 +16,14 @@ sub_option3 = MenuOption(3, options_menu[3])
 menu_options = Menu([sub_option1, sub_option2, sub_option3])
 # menu.print_menu()
 
-menu_options.print_menu()
+
+
+score_option1 = MenuOption(1, score_options[1])
+score_option2 = MenuOption(1, score_options[2])
+score_option3 = MenuOption(1, score_options[3])
+
+menu_scores_option = Menu([score_option1, score_option2, score_option3])
+menu_scores_option.print_menu()
 
 tips = """
   ------------------------------------------------------------------------
