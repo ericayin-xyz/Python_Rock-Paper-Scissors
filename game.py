@@ -196,33 +196,35 @@ while option != "4":
             try:
                 menu_options.print_menu()
                 options = _print_options(3)
-                # for options in 1, 2,  3:
                 system('clear')
             except ValueError:
                 _inviad_input()
 
             if options == "1":
-                # while score_choices == "1" or "2" or "3":  
-                try:
-                    menu_scores_option.print_menu()
-                    x = _print_options(3) 
-                except ValueError:
-                    _inviad_input() 
-                else:
-                    score_choices = {"1" : 3, "2" : 5, "3" : 10}
-                    totall_score = score_choices[x] 
-                    
-                    if x == "1": 
-                        print(f"  Your score cap has been changed to [{score_choices[x]}] !")
-                    elif x == "2":
-                        print(f"\n  Your score cap has been changed to [{score_choices[x]}] !")
-                    elif x == "3":
-                        print(f"\n  Your score cap has been changed to [{score_choices[x]}] !")
-                    else:
-                        system('clear') 
+                while True:
+                    try:
+                        menu_scores_option.print_menu()
+                        score_choices = _print_options(3) 
+                    except ValueError:
                         _inviad_input()
-                    break  
-                
+                    else:    
+                        if score_choices < "4" and score_choices > "0":
+                        # if score_choices == "1" or "2" or "3":
+                            score_list = {"1" : 3, "2" : 5, "3" : 10}
+                            totall_score = score_list[score_choices]             
+                            if score_choices == "1": 
+                                print(f"\n  Your score has been changed to [{totall_score}] !")
+                            elif score_choices == "2":
+                                print(f"\n  Your score has been changed to [{totall_score}] !")
+                            elif score_choices == "3":
+                                print(f"\n  Your score has been changed to [{totall_score}] !")
+                            else:
+                                break 
+                        else:
+                            system('clear')  
+                            _inviad_input()
+                        break 
+
             # type 2 - direction/rules about the game    
             elif options == "2":
                 print(tips)
