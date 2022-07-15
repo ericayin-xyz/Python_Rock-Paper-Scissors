@@ -1,16 +1,13 @@
-from email import message
-from email.policy import default
 from menu_option import MenuOption
 from menu import Menu
 from menu_seed import menu, menu_options
 import random
-from art import *
-from bullet import Password
 from os import system
-from unicodedata import name
 from images import logo, mainmenu, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu
 from player import Player
 from menu_seed import tips, menu_scores_option
+from art import *
+from bullet import Password
 
 
 def _print_options(i):
@@ -88,7 +85,7 @@ while option != "4":
                     print("\/\/\nComputer")
                     print(images[computer_choice - 1])
 
-                    # give feedback + core keeping
+                    # give feedback + score keeping
                     if user_choice == 3 and computer_choice == 1:
                         computer_score += 1
                         print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
@@ -96,10 +93,10 @@ while option != "4":
                         user_score += 1
                         print(f">> You Win! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
                     elif user_choice == computer_choice:
-                        print(f">> It's a Deaw! <<\nYour  score: {user_score}\nComputer score: {computer_score}\n\n")
+                        print(f">> It's a Draw! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
                     elif user_choice > computer_choice:
                         user_score += 1
-                        print(f">> You Win! <<\nYour  score: {user_score}\nComputer score: {computer_score}\n\n")
+                        print(f">> You Win! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
                     elif user_choice < computer_choice:
                         computer_score += 1
                         print(f">> You Lose! <<\nYour score: {user_score}\nComputer score: {computer_score}\n\n")
@@ -171,7 +168,7 @@ while option != "4":
                         user1_score += 1
                         print(f">> {name1} Wins! <<\n{name1} score: {user1_score}\n{name2} score: {user2_score}\n\n")
                     elif user_choice_1 == user_choice_2:
-                        print(f">> It's a Deaw! <<\n{name1}  score: {user1_score}\n{name2} score: {user2_score}\n\n")
+                        print(f">> It's a Draw! <<\n{name1}  score: {user1_score}\n{name2} score: {user2_score}\n\n")
                     elif user_choice_1 > user_choice_2:
                         user1_score += 1
                         print(f">> {name1} Wins! <<\n{name1}  score: {user1_score}\n{name2} score: {user2_score}\n\n")
