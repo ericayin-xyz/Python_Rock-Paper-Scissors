@@ -7,7 +7,7 @@ else
 fi
 
 
-if python -c "import art" &> /dev/null; then
+if python -c "import 'art', *" &> /dev/null; then
     echo 'Type <pip install -r requirements.txt> to install packages'
     exit 1
 else
@@ -15,7 +15,7 @@ else
 fi
 
 
-if python -c "import bullet" &> /dev/null; then
+if python -c "import 'bullet'" &> /dev/null; then
     echo 'Type <pip install -r > to install packages'
     exit 1
 else

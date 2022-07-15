@@ -1,21 +1,25 @@
 
-|||->  Introduction  
+->  Introduction  
 This is a classic rock paper scissors game. It has one-player and two-player modes, and users are able to reset how many rounds it takes. 
 
-|||->  Installtion  
+
+
+->  Installtion  
 1. You will need python3 installed. If you haven't installed it, check out: <https://www.python.org/downloads/>
 2. git setup
 2. git clone the app to your local directory: <git clone git@github.com:luyueyin/Luyueyin_T1A3.git>
 
 
-|||->  Launching the Game  
+
+->  Launching the Game  
 You can launch Rock Paper Scissors Game by ethier running <./run_game.sh> script or <python3 game.py> from the </src> directory
 
 
-|||->  Help File 
+
+->  Help File 
 You can run <./run_game.sh help> to display the help message  
 
-|||->  Game Direction 
+->  Game Direction 
 The main menu has four options:
 option-1: a single-player game
 option-2: a multiplayer game
@@ -23,9 +27,3 @@ option-3: game setting(rounds) and game tips
 option-4: quit the game 
 
 
-if [ $# -eq 1 ] && [ $1 == "help" ]
-then
-    cat help.txt
-else
-    python3 game.py
-fi
