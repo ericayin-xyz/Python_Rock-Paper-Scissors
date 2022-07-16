@@ -1,4 +1,5 @@
 
+
 ->  Introduction  
 This is a classic rock paper scissors game. It has one-player and two-player modes, and users are able to reset how many rounds it takes. 
 
@@ -6,8 +7,10 @@ This is a classic rock paper scissors game. It has one-player and two-player mod
 
 ->  Installtion  
 1. You will need python3 installed. If you haven't installed it, check out: <https://www.python.org/downloads/>
-2. git setup
-2. git clone the app to your local directory: <git clone git@github.com:luyueyin/Luyueyin_T1A3.git>
+2. Git setup
+3. Git clone the app to your local directory: <git clone git@github.com:luyueyin/Luyueyin_T1A3.git>
+4. Install PIP: you can run <python -m ensurepip --upgrade> if you don't have it.
+5. Modules install: you can run <pip install -r requirements.txt> 
 
 
 
