@@ -1,27 +1,27 @@
 
---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
 ->  Introduction  
-This is a classic rock paper scissors game. It has one-player and two-player modes, and users are able to reset how many rounds it takes. 
+This is a classic rock paper scissors game for one or two players.
 
 
 
-->  Installtion  
-1. You will need python3 installed. If you haven't installed it, check out: <https://www.python.org/downloads/>
+->  installation 
+1. You will need python3 installed. If you haven't installed it, check out: "https://www.python.org/downloads/"
 2. Git setup
-3. Git clone the app to your local directory: <git clone git@github.com:luyueyin/Luyueyin_T1A3.git>
-4. Install PIP: you can run <python -m ensurepip --upgrade> if you don't have it.
-5. Modules install: you can run <pip install -r requirements.txt> 
+3. Git clone the app to your local directory: "git clone git@github.com:luyueyin/Luyueyin_T1A3.git"
+4. Install pip3: you can run <python3 -m ensurepip --upgrade> if you don't have it.
+5. Modules install will be installed automatically, or type "pip3 install -r requirements.txt" for manual installation
 
 
 
 ->  Launching the Game  
-You can launch Rock Paper Scissors Game by ethier running <./run_game.sh> script or <python3 game.py> from the </src> directory
+You can launch the Rock Paper Scissors Game by ethier running "./run_game.sh" script or "python3 game.py" from the "/src" directory
 
 
 
-->  Help File 
-You can run <./run_game.sh help> to display the help message  
+->  Help  
+Type "./run_game.sh help" to display the help message  
 
 ->  Game Direction 
 The main menu has four options:
@@ -30,4 +30,4 @@ option-2: a multiplayer game
 option-3: game setting(rounds) and game tips
 option-4: quit the game 
 
---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
