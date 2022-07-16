@@ -6,7 +6,7 @@ This is a classic rock paper scissors game for one or two players.
 
 
 
-->  installation 
+->  Installation 
 1. You will need python3 installed. If you haven't installed it, check out: "https://www.python.org/downloads/"
 2. Git setup
 3. Git clone the app to your local directory: "git clone git@github.com:luyueyin/Luyueyin_T1A3.git"

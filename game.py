@@ -1,14 +1,11 @@
-from menu_option import MenuOption
-from menu import Menu
 from menu_seed import menu, menu_options
 import random
 from os import system
-from images import logo, mainmenu, rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b, options_menu
+from images import  rock, paper, scissors,rock_paper_scissors, line, win_a, win_b, lose_a, lose_b
 from player import Player
 from menu_seed import tips, menu_scores_option
 from art import *
 from bullet import Password
-
 
 def _print_options(i):
     opt = input(f"\n  Select your option (1-{i}):  ")
@@ -27,6 +24,8 @@ def _totall_score(i):
     score_cap = i
     return score_cap
 
+    
+
 # ----------------------------------------------------#
 system('clear') 
 images = [rock, paper, scissors]
@@ -36,10 +35,6 @@ score_choices = ""
 totall_score = 3
 
 
-
-
-
-
 # main menu has 4 options, select one of them
 while option != "4":
     # display logo + weclome str
@@ -47,7 +42,7 @@ while option != "4":
     # variables
     user_score = 0
     computer_score = 0
-    
+    # menu
     option = _print_options(4)
     system('clear')
 
@@ -240,7 +235,7 @@ while option != "4":
     # select option 4 - exit
     elif option == "4":
         continue
-
+    
     else:
         _inviad_input()
 

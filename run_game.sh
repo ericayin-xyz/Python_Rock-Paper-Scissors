@@ -14,8 +14,3 @@ if [ $# -eq 1 ] && [ $1 == "help" ]; then
 else
     python3 game.py
 fi
-
-
-
-
-
