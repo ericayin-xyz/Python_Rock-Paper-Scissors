@@ -16,7 +16,7 @@ This is a classic rock paper scissors game for one or two players.
 
 
 ->  Launching the Game  
-You can launch the Rock Paper Scissors Game by ethier running "./run_game.sh" script or "python3 game.py" from the "/src" directory
+You can launch the Rock Paper Scissors Game by running "./run_game.sh" from the "/src" directory
 
 
 
