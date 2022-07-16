@@ -1,4 +1,5 @@
 
+--------------------------------------------------------------------------------------------------------------------
 
 ->  Introduction  
 This is a classic rock paper scissors game. It has one-player and two-player modes, and users are able to reset how many rounds it takes. 
@@ -29,4 +30,4 @@ option-2: a multiplayer game
 option-3: game setting(rounds) and game tips
 option-4: quit the game 
 
-
+--------------------------------------------------------------------------------------------------------------------
